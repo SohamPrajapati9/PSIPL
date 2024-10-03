@@ -4,12 +4,12 @@ int main()
 {
  int a=10,b;
  b=a++;
- printf("%d \n", b);
+ printf("The value of b is %d\t \n", b);
  b=++a;
- printf("%d \n", b);
+ printf("The value of b is %d\t \n", b);
  b=a--;
- printf("%d \n", b);
+ printf("The value of b is %d\t \n", b);
  b=--a;
- printf("%d \n", b);
+ printf("The value of b is %d\t \n", b);
  return 0;
  }
