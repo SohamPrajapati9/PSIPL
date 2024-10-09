@@ -20,4 +20,5 @@ else {
 printf("%d is the smallest number \n",c);
 }
 }
+return 0;
 }
