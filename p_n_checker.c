@@ -13,4 +13,5 @@ printf("Negative number");
 else{
 printf("Number is 0");
 }
+return 0;
 }
