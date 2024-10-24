@@ -1,49 +1,47 @@
 #include <stdio.h>
 
-
-
 int main(){
-   
+
    int n;
-   printf("Enter number of inputs \n");
+   printf("Set size of array \n");
    scanf("%d",&n);
    int a[n];
-   printf("Enter the inputs \n");
+   printf("Enter %d numbers :- \n",n);
    for(int i=0;i<n;i++){
       scanf("%d",&a[i]);
    }
    for(int i=0;i<n;i++){
-      for(int k=0;k<n;k++){
+      for(int k=0;k<n-1-i;k++){
          if(a[k]>a[k+1]){
             int temp=a[k+1];
             a[k+1]=a[k];
             a[k]=temp;
+            for(int i=0;i<n;i++){
+               printf("%d \t",a[i]);
+            }
+            printf("\n");
          }
       }
    }
    int search;
-   printf("Enter the number you want to search \n");
-   scanf("%d",&search);
-   int mid = n/2;
-   if(a[mid]==search){
-      printf("The number %d is present at index %d",search,mid); 
+   int lastt=n-1;
+   int firstt=0;
+   int middlet;
+   int d=0;
+   while(lastt!=firstt){
+       middlet=(lastt+firstt)/2;
+       if(search==a[middlet]){
+           printf("The index is %d",middlet);
+           d=1;
+           break;
+       }else if(search>a[middlet]){
+           firstt=middlet+1;
+       }else if(search<a[middlet]){
+           lastt=middlet-1;
+       }
    }
-   else if(a[mid]>search){
-      for(int i=0;i<=mid;i++){
-         if(a[i]==search){
-            printf("The number %d is present at index %d",search,i);         
-         } 
-      }
+   if(d==0){
+       printf("The term %d isn't present",search);
    }
-   else if(a[mid]<search){
-      for(int i=mid;i<=n;i++){
-         if(a[i]==search){
-            printf("The number %d is present at index %d",search,i);         
-         } 
-      }
-   }
-   else{
-      printf("The number is not present in the list"); 
-   }
-   return 0; 
+   return 0;
 }
