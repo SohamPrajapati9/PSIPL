@@ -24,6 +24,8 @@ int main(){
       }
    }
    int search;
+   printf("Enter the number you want to search \n");
+   scanf("%d",&search);
    int lastt=n-1;
    int firstt=0;
    int middlet;
@@ -31,7 +33,7 @@ int main(){
    while(lastt!=firstt){
        middlet=(lastt+firstt)/2;
        if(search==a[middlet]){
-           printf("The index is %d",middlet);
+           printf("The index is %d \n",middlet);
            d=1;
            break;
        }else if(search>a[middlet]){
@@ -41,7 +43,7 @@ int main(){
        }
    }
    if(d==0){
-       printf("The term %d isn't present",search);
+       printf("The term %d isn't present \n",search);
    }
    return 0;
 }
