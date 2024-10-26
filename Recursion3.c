@@ -12,7 +12,7 @@ int main(){
    printf("Enter a number \n");
    scanf("%d",&n);
    for(int i=1;i<=n;i++){
-      int p = fib(n);
+      int p = fib(i);
       printf("%d \t",p);
    }
    printf(" \n ");
