@@ -1,21 +1,20 @@
 #include <stdio.h>
+#include <math.h>
 
 int div(int l,int b,int t){
-   if(l==0 || b==0){
-      return t;
-   }
-   int i=0;
-   for(i=1;i>=0;i*2){
-      if(i>l || i>b){
-         break;
-      }
-   }
-   l=l-i;
-   b=b-i;
-   t++;
-   div(l,i,t);
-   div(i,b,t);
-   return t;
+    if(l==0 || b==0){
+        return (t);
+    }
+    int i=0;
+    while(l>pow(2,i) && b>pow(2,i)){
+        i++;
+    }
+    l-=(pow(2,i));
+    b-=(pow(2,i));
+    t+=div(l,i,t);
+    t+=div(i,b,t);
+    t++;
+    return (t);
 }
 
 int main(){
