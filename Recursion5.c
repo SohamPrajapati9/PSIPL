@@ -22,4 +22,5 @@ int main(){
    scanf("%d%d",&l,&b);
    int tile = div(l,b);
    printf("We can fit %d tiles \n",tile);
+   return 0;
 }
