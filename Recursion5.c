@@ -1,24 +1,25 @@
 #include <stdio.h>
-#include <math.h>
 
-int div(int l,int b,int t){
-    if(l==0 || b==0){
-        return (t);
-    }
-    int i=0;
-    while(l>pow(2,i) && b>pow(2,i)){
-        i++;
-    }
-    l-=(pow(2,i));
-    b-=(pow(2,i));
-    t+=div(l,i,t);
-    t+=div(i,b,t);
-    t++;
-    return (t);
+int div(int l,int b){
+   if(l==0 || b==0){
+      return 0;
+   }
+   int i=0;
+   for(i=1;i>=0;i=i*2){
+      if(i > l || i> b){
+         break;
+      }
+   }
+   i = i / 2;
+   
+   
+   return 1 + div(l-i,b) + div(i,b-i);
 }
 
 int main(){
-   int l=6,b=5,t=0;
-   int tile = div(l,b,t);
-   printf("%d \n",tile);
+   int l,b;
+   printf("Enter the dimention of the Quadrilateral (l,b) \n");
+   scanf("%d%d",&l,&b);
+   int tile = div(l,b);
+   printf("We can fit %d tiles \n",tile);
 }
