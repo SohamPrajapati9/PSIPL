@@ -5,18 +5,21 @@ void inp(int (* m)[MAX_SIZE],int r,int c){
     printf("Enter the elements for the matrix \n");
     for(int i=0;i<r;i++){
         for(int j=0;j<c;j++){
-            printf(" Enter the (%d,%d) element \n",i,j);
+            printf("Enter the (%d,%d) element \n",i,j);
             scanf("%d",*(m+i)+j);
         }
     }
 }
 
-void multiply(int (* m1)[MAX_SIZE],int r1,int c1,int (* m2)[MAX_SIZE],int c2,int (* a)[MAX_SIZE}){
+void multiply(int (* ans)[MAX_SIZE],int (* m1)[MAX_SIZE],int r1,int c1,int (* m2)[MAX_SIZE],int c2){
     for(int i=0;i<r1;i++){
-        for(int j=;j<c2;j++){
-            
-        }
-    }
+      for(int j=0;j<c2;j++){
+         *(ans[i]+j) = 0;
+         for(int l=0;l<c1;l++){
+            *(ans[i] +j) += (*(m1[i] +l)) *  (*(m2[l] +j));
+         }
+      }
+   }
 }
 
 int main(){
@@ -28,9 +31,16 @@ int main(){
     int m1[r1][c1],m2[r2][c2];
     if(c1!=r2){
         printf("Cannot perform multiplication \n");
+        return 0;
     }
     inp(m1,r1,c1);
     inp(m2,r2,c2);
-    
-    multiply(m1,r1,c1,m2,r2,c2);
+    int ans[r1][c2];
+    multiply(ans,m1,r1,c1,m2,c2);
+    for(int i=0;i<r1;i++){
+        for(int j=0;j<c2;j++){
+            printf("%d \t",*(*(ans+i)+j));
+        }
+        printf("\n");
+    }
 }
