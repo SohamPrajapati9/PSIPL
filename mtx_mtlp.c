@@ -1,25 +1,27 @@
 #include <stdio.h>
 #define MAX_SIZE 10
 
-void inp(int (* m)[MAX_SIZE],int r,int c){
-    printf("Enter the elements for the matrix \n");
+int inp(int (* m)[MAX_SIZE],int r,int c){
+    printf("Enter the elements for matrix \n");
     for(int i=0;i<r;i++){
         for(int j=0;j<c;j++){
             printf("Enter the (%d,%d) element \n",i,j);
             scanf("%d",*(m+i)+j);
         }
     }
+    printf("\n \n");
 }
 
 void multiply(int (* ans)[MAX_SIZE],int (* m1)[MAX_SIZE],int r1,int c1,int (* m2)[MAX_SIZE],int c2){
     for(int i=0;i<r1;i++){
-      for(int j=0;j<c2;j++){
-         *(ans[i]+j) = 0;
-         for(int l=0;l<c1;l++){
-            *(ans[i] +j) += (*(m1[i] +l)) *  (*(m2[l] +j));
-         }
-      }
-   }
+        for(int j=0;j<c2;j++){
+            int sum = 0;
+            for(int l=0;l<c1;l++){
+                sum += (*(m1[i] +l)) *  (*(m2[l] +j));
+            }
+            *(ans[i]+j) = sum;
+        }
+    }
 }
 
 int main(){
