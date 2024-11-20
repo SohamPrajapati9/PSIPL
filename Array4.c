@@ -1,5 +1,12 @@
 #include <stdio.h>
 
+void print_arr(int arr[],int n){
+   for(int i=0;i<n;i++)
+      printf("%d \t",arr[i]);
+      
+      printf("\n");
+   }
+
 int main(){
    
    int n;
@@ -22,6 +29,7 @@ int main(){
 	a[i]=a[min_idx];
 	a[min_idx]=temp;
       
+    print_arr(a,n);
    }
    printf("The numbers in ascending order are:- \n");
    for(int i=0;i<n;i++){
