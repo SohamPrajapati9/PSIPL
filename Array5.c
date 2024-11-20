@@ -1,38 +1,31 @@
 #include <stdio.h>
 
-void print(int arr[],int n){
-   for(int i=0;i<n;i++)
-      printf("%d \t",arr[i]);
-      
-      printf("\n");
+void insertionSort(int arr[], int n){ 
+    int i, key, j;
+    for (i = 1; i < n; i++){
+        key = arr[i]; 
+        j = i - 1; 
+        while (j >= 0 && arr[j] > key){
+            arr[j + 1] = arr[j];
+            j = j - 1;
+        } 
+        arr[j + 1] = key;
+     } 
 }
 
 int main(){
-   
-   int n;
-   printf("Enter number of elements :- \n");
-   scanf("%d",&n);
-   int a[n];
-   printf("Enter %d numbers :- \n",n);
-   for(int i=0;i<n;i++){
-      scanf("%d",&a[i]);
-   }
-   
-   for(int i=1;i<n-1;i++){
-      int hold = a[i];
-      for(int j=i;j>=0;j--){
-         if(a[j]>hold && j>=0 && a[j]>a[j-1]){
-            a[i]=a[j];
-         }
-         a[j]=hold;
-      }
-      
-    print(a,n);
-   }
-   printf("The numbers in ascending order are:- \n");
-   for(int i=0;i<n;i++){
-      printf("%d ",a[i]);
-   }
-   printf("\n");
-   return 0;
+    int n, i;
+    printf("Enter the number of elements in the array: ");
+    scanf("%d", &n);
+    int arr[n];
+    printf("Enter %d integers: \n", n);
+    for (i = 0; i < n; i++){
+        scanf("%d", &arr[i]);
+    }
+    insertionSort(arr, n);
+    printf("Sorted array in ascending order:\n");
+    for (i = 0; i < n; i++){
+        printf("%d ", arr[i]);
+    }
+    return 0;
 }
